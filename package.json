@@ -1,0 +1,27 @@
+{
+  "name": "nodebb-plugin-sso-session",
+  "version": "0.1.1",
+  "description": "NodeBB SSO Session Plugin",
+  "main": "library.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/contentblvd/nodebb-plugin-sso-session"
+  },
+  "keywords": [
+    "nodebb",
+    "plugin",
+    "session",
+    "sso"
+  ],
+  "author": {
+    "name": "markcarey",
+  },
+  "license": "MIT",
+  "nbbpm": {
+    "compatibility": "^0.6.0"
+  },
+  "readme": "",
+  "readmeFilename": "README.md",
+  "_id": "nodebb-plugin-sso-session@0.0.1",
+  "_from": "nodebb-plugin-sso-session@~0.0.1"
+}
