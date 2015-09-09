@@ -1,3 +1,5 @@
+var winston = require('winston');
+
 var	passport = module.parent.require('passport'),
 	passportLocal = module.parent.require('passport-local').Strategy,
 	plugin = {};
