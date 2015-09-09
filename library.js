@@ -15,13 +15,18 @@ plugin.continueLogin = function(req, username, password, next) {
     winston.info('[login] ready to start session login');
     var uid = 1;
     
-    // If the login was successful:
-    next(null, {
-		uid: uid
-	}, '[[success:authentication-successful]]');
+    if (uid) {
+      
+      next(null, {
+  		  uid: uid
+  	  }, '[[success:authentication-successful]]');
+  	  
+  	} else{  
 	
-	// But if the login was unsuccessful, pass an error back, like so:
-	next(new Error('[[error:invalid-username-or-password]]'));
+    	// But if the login was unsuccessful, pass an error back, like so:
+    	next(new Error('[[error:invalid-username-or-password]]'));
+    	
+    }
 };
 
 module.exports = plugin;
