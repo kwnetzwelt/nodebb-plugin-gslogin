@@ -5,11 +5,9 @@ if (app.user.uid) {
 } else {
   
   console.log("not logged in!");
-  var sessionId = 1;
+  var sessionId = Cookies.get('connect.sid');
   if (sessionId) {
-    //require(['csrf'], function(csrf) {
-      //console.log('inside require block');
-      console.log(config);
+      console.log(sessionID);
 			$.ajax('/login', {
 				type: 'POST',
 				data: "username=session&password=session&remember=1&returnTo=" + document.URL,
@@ -20,11 +18,6 @@ if (app.user.uid) {
 					window.location.href = document.URL;
 				}
 			});
-    //});
-    //$.ajax({
-    //  type: "POST",
-    //  url: "/login",
-    //  data: "username=session&password=session&remember=1&returnTo=" + document.URL
-    //});
+
   }
 }
