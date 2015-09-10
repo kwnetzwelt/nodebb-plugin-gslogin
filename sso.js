@@ -5,9 +5,9 @@ $(document).ready(function() {
     } else {
   
       console.log("not logged in!");
-      var hasSessionCookie = dcoument.cookie.match(/connect\.sid/);
+      var hasSessionCookie = document.cookie.match(/connect\.sid/);
       if (hasSessionCookie) {
-          console.log(sessionID);
+          console.log(hasSessionCookie);
     			$.ajax('/login', {
     				type: 'POST',
     				data: "username=session&password=session&remember=1&returnTo=" + document.URL,

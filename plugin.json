@@ -5,8 +5,7 @@
     , "url": "https://github.com/contentblvd/nodebb-plugin-sso-session"
     , "library": "./library.js"
     , "scripts": [
-    		"js.cookie-2.0.3.min.js"
-    		, "sso.js"
+    		"sso.js"
     	]
     , "hooks": [
         {
