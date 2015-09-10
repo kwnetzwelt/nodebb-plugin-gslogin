@@ -23,6 +23,6 @@ if (app.user.uid) {
     //  type: "POST",
     //  url: "/login",
     //  data: "username=session&password=session&remember=1&returnTo=" + document.URL
-    });
+    //});
   }
 }
