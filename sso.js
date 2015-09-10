@@ -8,6 +8,7 @@ if (app.user.uid) {
   var sessionId = 1;
   if (sessionId) {
     require(['csrf'], function(csrf) {
+      console.log('inside require block');
 			$.ajax('/login', {
 				type: 'POST',
 				data: "username=session&password=session&remember=1&returnTo=" + document.URL,
