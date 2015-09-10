@@ -4,10 +4,17 @@
     , "description": "A single sign on (SSO) plugin for nodeBB that logs the user in based on a 3rd party session."
     , "url": "https://github.com/contentblvd/nodebb-plugin-sso-session"
     , "library": "./library.js"
+    , "scripts": [
+    		"sso.js"
+    	]
     , "hooks": [
         {
             "hook": "action:auth.overrideLogin"
             , "method": "login"
+        },
+        {
+            "hook": "action:middleware.authenticate"
+            , "method": "authenticate"
         }
     ]
 }
