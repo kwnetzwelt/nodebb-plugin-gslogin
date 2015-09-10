@@ -5,7 +5,7 @@ $(document).ready(function() {
     } else {
   
       console.log("not logged in!");
-      var sessionId = Cookies.get('connect.sid');
+      var sessionId = window.Cookies.get('connect.sid');
       if (sessionId) {
           console.log(sessionID);
     			$.ajax('/login', {
