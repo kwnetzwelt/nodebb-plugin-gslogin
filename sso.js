@@ -5,8 +5,8 @@ $(document).ready(function() {
     } else {
   
       console.log("not logged in!");
-      var sessionId = window.Cookies.get('connect.sid');
-      if (sessionId) {
+      var hasSessionCookie = dcoument.cookie.match(/connect\.sid/);
+      if (hasSessionCookie) {
           console.log(sessionID);
     			$.ajax('/login', {
     				type: 'POST',
@@ -20,6 +20,8 @@ $(document).ready(function() {
     			});
 
       }
+    } else {
+      console.log("no session cookie found");
     }
     
 });
