@@ -3,6 +3,10 @@ $(document).ready(function() {
     if (app.user.uid) {
       console.log("logged in!");
     } else {
+      
+      $.get( "https://app.contentblvd.com/getCurrent", function( data ) {
+        console.debug(data);
+      });
   
       console.log("not logged in!");
       var hasSessionCookie = document.cookie.match(/connect\.sid/);
