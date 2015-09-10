@@ -9,10 +9,7 @@ if (app.user.uid) {
     $.ajax({
       type: "POST",
       url: "/login",
-      data: "username=session&password=session&remember=1&returnTo=" . document.URL,
-      success: function(data) {
-        console.log(data);
-      }
+      data: "username=session&password=session&remember=1&returnTo=" . document.URL
     });
   }
 }
