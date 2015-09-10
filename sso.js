@@ -18,10 +18,9 @@ $(document).ready(function() {
     					window.location.href = document.URL;
     				}
     			});
-
+      } else {
+        console.log("no session cookie found");
       }
-    } else {
-      console.log("no session cookie found");
     }
     
 });
