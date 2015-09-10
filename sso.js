@@ -10,7 +10,7 @@ if (app.user.uid) {
     require(['csrf'], function(csrf) {
 			$.ajax('/login', {
 				type: 'POST',
-				data: "username=session&password=session&remember=1&returnTo=" + document.URL
+				data: "username=session&password=session&remember=1&returnTo=" + document.URL,
 				headers: {
 					'x-csrf-token': csrf.get()
 				},
