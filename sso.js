@@ -4,9 +4,18 @@ $(document).ready(function() {
       console.log("logged in!");
     } else {
       
-      $.get( "http://products.contentblvd.com:4000/getCurrent", function( data ) {
-        console.debug(data);
-      });
+      //$.get( "http://products.contentblvd.com:4000/getCurrent", function( data ) {
+      //  console.debug(data);
+      //});
+      $.ajax('http://products.contentblvd.com:4000/getCurrent', {
+				type: 'GET',
+				xhrFields: {
+            withCredentials: true
+        },
+				success: function(data) {
+					console.debug(data);
+				}
+			});
   
       console.log("not logged in!");
       var hasSessionCookie = document.cookie.match(/connect\.sid/);
@@ -18,9 +27,6 @@ $(document).ready(function() {
     				headers: {
     					'x-csrf-token': config.csrf_token
     				},
-    				xhrFields: {
-                withCredentials: true
-            },
     				success: function() {
     					window.location.href = document.URL;
     				}
