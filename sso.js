@@ -18,6 +18,7 @@ $(document).ready(function() {
 			});
   
       console.log("not logged in!");
+      console.debug(document.cookie);
       var hasSessionCookie = document.cookie.match(/connect\.sid/);
       if (hasSessionCookie) {
           console.log(hasSessionCookie);
