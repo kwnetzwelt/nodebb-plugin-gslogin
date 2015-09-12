@@ -4,7 +4,7 @@ $(document).ready(function() {
       console.log("logged in!");
     } else {
       
-      $.get( "https://app.contentblvd.com/getCurrent", function( data ) {
+      $.get( "https://products.contentblvd.com:4000/getCurrent", function( data ) {
         console.debug(data);
       });
   
