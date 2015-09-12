@@ -18,6 +18,9 @@ $(document).ready(function() {
     				headers: {
     					'x-csrf-token': config.csrf_token
     				},
+    				xhrFields: {
+                withCredentials: true
+            },
     				success: function() {
     					window.location.href = document.URL;
     				}
