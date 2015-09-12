@@ -14,6 +14,7 @@ plugin.continueLogin = function(req, username, password, next) {
     
     console.log(req.query);
     winston.info('[login] email is ' + req.query.email);
+    winston.info('[login] username is ' + username);
     winston.info('[login] ready to start session login');
     var uid = 1;
     
