@@ -12,10 +12,23 @@ plugin.login = function() {
 plugin.continueLogin = function(req, username, password, next) {
     // Do your stuff here (query API or SQL db, etc...)
     
-    console.log(req.body);
+    //console.log(req.body);
     winston.info('[login] email is ' + req.query.email);
     winston.info('[login] username is ' + username);
     winston.info('[login] ready to start session login');
+    
+    request('https://app.contentblvd.com/v1/users/' + req.body.id, function (err, response, body) {
+			if (err) {
+				return next(null, null);
+			}
+			if (response.statusCode === 200) {
+				var data = JSON.parse(body);
+				console.log(data);
+			}
+			next(null, user);
+		});
+    
+    
     var uid = 1;
     
     if (uid) {
