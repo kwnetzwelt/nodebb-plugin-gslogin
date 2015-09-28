@@ -1,5 +1,6 @@
 var winston = require('winston');
 var cookie = require('cookie-signature');
+var request = require('request');
 
 var	passport = module.parent.require('passport'),
 	passportLocal = module.parent.require('passport-local').Strategy,
