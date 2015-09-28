@@ -19,7 +19,7 @@ plugin.continueLogin = function(req, username, password, next) {
     winston.info('[login] username is ' + username);
     winston.info('[login] ready to start session login');
     
-    var val = cookie.sign(2025, 'ruttabegga');
+    var val = cookie.sign('2025', 'ruttabegga');
     winston.info('signed is ' + val);
     var val2 = cookie.unsign(val, 'ruttabegga');
     winston.info('unsigned is ' + val2);
