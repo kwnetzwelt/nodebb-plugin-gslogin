@@ -21,7 +21,11 @@ plugin.continueLogin = function(req, username, password, next) {
     
     var val = cookie.sign('2025', 'ruttabegga');
     winston.info('signed is ' + val);
-    var val2 = cookie.unsign(val, 'ruttabegga');
+    var val_encoded = new Buffer(val).toString('base64');
+    winston.info('encoded is ' + val_encoded);
+    var val_decoded = new Buffer(val_encode,'base64').toString('ascii');
+    winston.info('decoded is ' + val_decoded);
+    var val2 = cookie.unsign(val_decoded, 'ruttabegga');
     winston.info('unsigned is ' + val2);
     
     request('https://app.contentblvd.com/v1/users/' + req.body.id, function (err, response, body) {
