@@ -1,4 +1,5 @@
 var winston = require('winston');
+var cookie = require('cookie-signature');
 
 var	passport = module.parent.require('passport'),
 	passportLocal = module.parent.require('passport-local').Strategy,
@@ -16,6 +17,11 @@ plugin.continueLogin = function(req, username, password, next) {
     winston.info('[login] email is ' + req.query.email);
     winston.info('[login] username is ' + username);
     winston.info('[login] ready to start session login');
+    
+    var val = cookie.sign(2025, 'ruttabegga');
+    winston.info('signed is ' + val);
+    var val2 = cookie.unsign(val, 'ruttabegga');
+    winston.info('unsigned is ' + val2);
     
     request('https://app.contentblvd.com/v1/users/' + req.body.id, function (err, response, body) {
 			if (err) {
