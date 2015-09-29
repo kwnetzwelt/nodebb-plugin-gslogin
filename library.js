@@ -93,6 +93,7 @@
 	};
 
 	CB.login = function(payload, callback) {
+	  winston.info('[payload]' + payload);
 		CB.getUidByCBid(payload.CBid, function(err, uid) {
 			if(err) {
 				return callback(err);
