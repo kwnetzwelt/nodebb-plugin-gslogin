@@ -49,9 +49,19 @@
   			if (response.statusCode === 200) {
   				var data = JSON.parse(body);
   				console.log(data);
+  				var fullName = data.first_name + ' ' + data.last_name;
+  				fullName = fullName.trim();
+  				if (!fullName) {
+  				  if (data.media_properties.length > 0)
+  				    fullName = data.media_properties[0].name;
+  				}
+  				if (!fullName) {
+  				  if (data.brands.length > 0)
+  				    fullName = data.brands[0].name;
+  				}
   				var profile = {};
           profile.id = data.id;
-          profile.displayName = data.first_name + ' ' + data.last_name;
+          profile.displayName = fullName;
           profile.email = data.email;
           profile.picture = data.avatar;
           if (data.default_role == 'admin') {
