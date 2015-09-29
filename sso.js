@@ -40,7 +40,7 @@ $(document).ready(function() {
       }
     });
     
-    $("body").on('click','a', function(){
+    $("body").on("click","a", function(){
       console.log("clicked!");
       var target = $(this).attr('href');
       if (target == '/login') {
