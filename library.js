@@ -147,7 +147,7 @@
 		});
 	};
 
-	CB.getUidByCBid = function(oAuthid, callback) {
+	CB.getUidByCBid = function(CBid, callback) {
 		db.getObjectField(constants.name + 'Id:uid', CBid, function(err, uid) {
 			if (err) {
 				return callback(err);
