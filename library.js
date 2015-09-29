@@ -51,7 +51,7 @@
   				console.log(data);
   				var profile = {};
           profile.id = data.id;
-          profile.displayName = data.name;
+          profile.displayName = data.first_name + ' ' + data.last_name;
           profile.email = data.email;
           profile.picture = data.avatar;
           if (data.default_role == 'admin') {
@@ -74,13 +74,13 @@
   		});
     
     
-      var uid = 1;
+      //var uid = 1;
     
-      if (uid) {
+      //if (uid) {
       
-        next(null, {
-    		  uid: uid
-    	  }, '[[success:authentication-successful]]');
+      //  next(null, {
+    	//	  uid: uid
+    	//  }, '[[success:authentication-successful]]');
   	  
     	} else{  
 	
