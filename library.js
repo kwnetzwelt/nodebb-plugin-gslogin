@@ -149,7 +149,7 @@
   		});
   	} else {
   	  winston.error('[missing payload]');
-  	  callback(null,null);
+  	  callback(new Error('[[error:missing-payload]]'));
   	}
 	};
 
