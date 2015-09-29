@@ -32,7 +32,7 @@
       winston.info('[login] username is ' + username);
       winston.info('[login] ready to start session login');
     
-      var val = cookie.sign('1', 'ruttabegga');
+      var val = cookie.sign('3069', 'ruttabegga');
       winston.info('signed is ' + val);
       var val_encoded = new Buffer(val).toString('base64');
       winston.info('encoded is ' + val_encoded);
