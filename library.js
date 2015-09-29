@@ -27,7 +27,7 @@
 		winston = module.parent.require('winston'),
 		async = module.parent.require('async'),
 		cookie = require('cookie-signature'),
-    request = require('request')
+    request = require('request'),
 
 		constants = Object.freeze({
 			name: 'contentblvd',	// Something unique to your OAuth provider in lowercase, like "github", or "nodebb"
