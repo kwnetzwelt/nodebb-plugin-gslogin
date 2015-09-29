@@ -12,20 +12,33 @@ $(document).ready(function() {
       
       console.log("not logged in!");
       
+      var currentURL = document.URL;
+      currentURL = currentURL.split("?")[0];
+      
       if (token) {
     	  $.ajax('/login', {
           type: 'POST',
-          data: 'username='+ token + '&password=contentblvd&remember=1&returnTo=' + document.URL,
+          data: 'username='+ token + '&password=contentblvd&remember=1&returnTo=' + currentURL,
           headers: {
           	'x-csrf-token': config.csrf_token
           },
           success: function() {
-          	window.location.href = document.URL;
+          	window.location.href = currentURL;
           }
         });
       }
 
     }
+    
+    $('#logged-out-menu a').each(function(){
+      var target = $(this).attr('href');
+      if (target == '/login') {
+        $(this).attr('href', 'https://app.contentblvd.com/#/login');
+      }
+      if (target == '/register') {
+        $(this).attr('href', 'https://app.contentblvd.com/#/signup');
+      }
+    });
     
 });
 
