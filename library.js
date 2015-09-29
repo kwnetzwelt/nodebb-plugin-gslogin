@@ -121,7 +121,7 @@
               
               if (payload.picture) {
                 picture = payload.picture;
-                if (picture.match(/^http/i) {
+                if ( picture.match(/^http/i) ) {
                   // already has domain
                 } else {
                   picture = 'https://d2m2amo0drgja.cloudfront.net/w400/' + picture;
