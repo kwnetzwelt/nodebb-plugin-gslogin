@@ -7,10 +7,10 @@ if (token.toString() == "null") {
 $(document).ready(function() {
 
     if (app.user.uid) {
-      console.log("logged in!");
+      // console.log("logged in!");
     } else {
       
-      console.log("not logged in!");
+      // console.log("not logged in!");
       
       var currentURL = document.URL;
       currentURL = currentURL.split("?")[0];

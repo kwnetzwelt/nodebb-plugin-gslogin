@@ -1,7 +1,7 @@
 {
       "id": "nodebb-plugin-sso-session"
-    , "name": "NodeBB SSO Session Plugin"
-    , "description": "A single sign on (SSO) plugin for nodeBB that logs the user in based on a 3rd party session."
+    , "name": "NodeBB ContentBLVD SSO Plugin"
+    , "description": "A single sign on (SSO) plugin for nodeBB that logs the user in based a CB login session."
     , "url": "https://github.com/contentblvd/nodebb-plugin-sso-session"
     , "library": "./library.js"
     , "scripts": [
@@ -11,11 +11,6 @@
         {
             "hook": "action:auth.overrideLogin"
             , "method": "login"
-        },
-        {
-            "hook": "action:middleware.authenticate"
-            , "method": "authenticate"
-        },
-        { "hook": "filter:auth.init", "method": "getStrategy" }
+        }
     ]
 }

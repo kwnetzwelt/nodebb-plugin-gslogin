@@ -25,24 +25,10 @@
   };
 
   plugin.continueLogin = function(req, username, password, next) {
-      // Do your stuff here (query API or SQL db, etc...)
-    
-      //console.log(req.body);
-      winston.info('[login] email is ' + req.query.email);
-      winston.info('[login] username is ' + username);
-      winston.info('[login] ready to start session login');
-    
-      var val = cookie.sign('8f874558-4d80-4ec3-a720-f01e5f681f38', 'ruttabegga');
-      winston.info('signed is ' + val);
-      var val_encoded = new Buffer(val).toString('base64');
-      winston.info('encoded is ' + val_encoded);
-      
-      
-      winston.info('SSOS is ' + process.env.FORUM_SSO_SECRET);
     
       var val_decoded = new Buffer(username,'base64').toString('ascii');
       winston.info('decoded is ' + val_decoded);
-      var externalID = cookie.unsign(val_decoded, 'ruttabegga');
+      var externalID = cookie.unsign(val_decoded, process.env.FORUM_SSO_SECRET);
       winston.info('unsigned is ' + externalID);
     
       request('https://app.contentblvd.com/v1/users/' + externalID, function (err, response, body) {
@@ -51,7 +37,7 @@
   			}
   			if (response.statusCode === 200) {
   				var data = JSON.parse(body);
-  				console.log(data);
+  				// console.log(data);
   				var fullName = data.first_name + ' ' + data.last_name;
   				fullName = fullName.trim();
   				if (!fullName) {
@@ -83,24 +69,7 @@
             next(null, user);
           });
   			}
-  			//next(null, user);
   		});
-    
-    
-      //var uid = 1;
-    
-      //if (uid) {
-      
-      //  next(null, {
-    	//	  uid: uid
-    	//  }, '[[success:authentication-successful]]');
-  	  
-    	//} else{  
-	
-      	// But if the login was unsuccessful, pass an error back, like so:
-      //	next(new Error('[[error:invalid-username-or-password]]'));
-    	
-      //}
   };
 
   plugin.getUidByCBid = function(CBid, callback) {
