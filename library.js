@@ -80,6 +80,15 @@
 
   };
 
+  CB.getUidByCBid = function(CBid, callback) {
+    db.getObjectField(constants.name + 'Id:uid', CBid, function(err, uid) {
+      if (err) {
+        return callback(err);
+      }
+      callback(null, uid);
+    });
+  };
+  
   CB.login = function(payload, callback) {
     if (payload) {
       winston.info('[payload]' + payload);
@@ -139,15 +148,6 @@
       winston.error('[missing payload]');
       callback(new Error('[[error:missing-payload]]'));
     }
-  };
-
-  CB.getUidByCBid = function(CBid, callback) {
-    db.getObjectField(constants.name + 'Id:uid', CBid, function(err, uid) {
-      if (err) {
-        return callback(err);
-      }
-      callback(null, uid);
-    });
   };
 
   CB.deleteUserData = function(uid, callback) {
