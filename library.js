@@ -36,6 +36,9 @@
       winston.info('signed is ' + val);
       var val_encoded = new Buffer(val).toString('base64');
       winston.info('encoded is ' + val_encoded);
+      
+      
+      winston.info('SSOS is ' + process.env.FORUM_SSO_SECRET);
     
       var val_decoded = new Buffer(username,'base64').toString('ascii');
       winston.info('decoded is ' + val_decoded);
