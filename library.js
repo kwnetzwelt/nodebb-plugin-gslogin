@@ -93,59 +93,64 @@
 	};
 
 	CB.login = function(payload, callback) {
-	  winston.info('[payload]' + payload);
-		CB.getUidByCBid(payload.CBid, function(err, uid) {
-			if(err) {
-				return callback(err);
-			}
+	  if (payload) {
+  	  winston.info('[payload]' + payload);
+  		CB.getUidByCBid(payload.CBid, function(err, uid) {
+  			if(err) {
+  				return callback(err);
+  			}
 
-			if (uid !== null) {
-				// Existing User
-				callback(null, {
-					uid: uid
-				});
-			} else {
-				// New User
-				var success = function(uid) {
-					// Save provider-specific information to the user
-					User.setUserField(uid, constants.name + 'Id', payload.CBid);
-					db.setObjectField(constants.name + 'Id:uid', payload.CBid, uid);
+  			if (uid !== null) {
+  				// Existing User
+  				callback(null, {
+  					uid: uid
+  				});
+  			} else {
+  				// New User
+  				var success = function(uid) {
+  					// Save provider-specific information to the user
+  					User.setUserField(uid, constants.name + 'Id', payload.CBid);
+  					db.setObjectField(constants.name + 'Id:uid', payload.CBid, uid);
 
-					if (payload.isAdmin) {
-						Groups.join('administrators', uid, function(err) {
-							callback(null, {
-								uid: uid
-							});
-						});
-					} else {
-						callback(null, {
-							uid: uid
-						});
-					}
-				};
+  					if (payload.isAdmin) {
+  						Groups.join('administrators', uid, function(err) {
+  							callback(null, {
+  								uid: uid
+  							});
+  						});
+  					} else {
+  						callback(null, {
+  							uid: uid
+  						});
+  					}
+  				};
 
-				User.getUidByEmail(payload.email, function(err, uid) {
-					if(err) {
-						return callback(err);
-					}
+  				User.getUidByEmail(payload.email, function(err, uid) {
+  					if(err) {
+  						return callback(err);
+  					}
 
-					if (!uid) {
-						User.create({
-							username: payload.handle,
-							email: payload.email
-						}, function(err, uid) {
-							if(err) {
-								return callback(err);
-							}
+  					if (!uid) {
+  						User.create({
+  							username: payload.handle,
+  							email: payload.email
+  						}, function(err, uid) {
+  							if(err) {
+  								return callback(err);
+  							}
 
-							success(uid);
-						});
-					} else {
-						success(uid); // Existing account -- merge
-					}
-				});
-			}
-		});
+  							success(uid);
+  						});
+  					} else {
+  						success(uid); // Existing account -- merge
+  					}
+  				});
+  			}
+  		});
+  	} else {
+  	  winston.error('[missing payload]');
+  	  callback(null,null);
+  	}
 	};
 
 	CB.getUidByCBid = function(CBid, callback) {
