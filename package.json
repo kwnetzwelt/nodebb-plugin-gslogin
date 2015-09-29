@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-sso-session",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "NodeBB SSO Session Plugin",
   "main": "library.js",
   "repository": {
@@ -21,7 +21,5 @@
     "compatibility": "^0.7.0"
   },
   "readme": "",
-  "readmeFilename": "README.md",
-  "_id": "nodebb-plugin-sso-session@0.1.1",
-  "_from": "nodebb-plugin-sso-session@~0.1.1"
+  "readmeFilename": "README.md"
 }
