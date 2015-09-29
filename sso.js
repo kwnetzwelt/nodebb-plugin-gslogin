@@ -40,6 +40,13 @@ $(document).ready(function() {
       }
     });
     
+    $(document).on('click','div.topic-main-buttons a', function(){
+      var target = $(this).attr('href');
+      if (target == '/login') {
+        $(this).attr('href', 'https://app.contentblvd.com/#/login');
+      }
+    });
+    
 });
 
 function getURLParameter(name) {
