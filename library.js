@@ -59,7 +59,7 @@
   				var profile = {};
       		profile.id = data.id;
       		profile.displayName = data.name;
-      		profile.emails = [{ value: data.email }];
+      		profile.email = data.email;
       		if (data.default_role == 'admin') {
       		  profile.isAdmin = 1;
       		}
