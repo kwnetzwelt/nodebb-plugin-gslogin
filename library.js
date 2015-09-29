@@ -93,7 +93,7 @@
 	};
 
 	CB.login = function(payload, callback) {
-		OAuth.getUidByCBid(payload.CBid, function(err, uid) {
+		CB.getUidByCBid(payload.CBid, function(err, uid) {
 			if(err) {
 				return callback(err);
 			}
