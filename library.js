@@ -120,7 +120,7 @@
               db.setObjectField(constants.name + 'Id:uid', payload.CBid, uid);
               
               if (payload.picture) {
-                picture = payload.picture;
+                var picture = payload.picture;
                 if ( picture.match(/^http/i) ) {
                   // already has domain
                 } else {
