@@ -15,6 +15,7 @@
         {
             "hook": "action:middleware.authenticate"
             , "method": "authenticate"
-        }
+        },
+        { "hook": "filter:auth.init", "method": "getStrategy" }
     ]
 }
