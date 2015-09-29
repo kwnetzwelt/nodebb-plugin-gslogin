@@ -82,12 +82,12 @@
     	//	  uid: uid
     	//  }, '[[success:authentication-successful]]');
   	  
-    	} else{  
+    	//} else{  
 	
       	// But if the login was unsuccessful, pass an error back, like so:
-      	next(new Error('[[error:invalid-username-or-password]]'));
+      //	next(new Error('[[error:invalid-username-or-password]]'));
     	
-      }
+      //}
   };
 
   plugin.getUidByCBid = function(CBid, callback) {
