@@ -41,6 +41,7 @@ $(document).ready(function() {
     });
     
     $("body").on('click','div.pull-right a', function(){
+      console.log("clicked!");
       var target = $(this).attr('href');
       if (target == '/login') {
         $(this).attr('href', 'https://app.contentblvd.com/#/login');
