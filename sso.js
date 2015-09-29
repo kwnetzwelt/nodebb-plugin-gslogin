@@ -40,11 +40,11 @@ $(document).ready(function() {
       }
     });
     
-    $("body").on("click","a", function(){
+    $("body").on("click","div.pull-right a", function(){
       var target = $(this).attr('href');
       if (target == '/login') {
-        console.log("clicked login link");
-        $(this).attr('href', 'https://app.contentblvd.com/#/login');
+        window.location = 'https://app.contentblvd.com/#/login';
+        return false;
       }
     });
     
