@@ -30,7 +30,7 @@ $(document).ready(function() {
 
     }
     
-    $('#logged-out-menu a').each(function(){
+    $('#logged-out-menu a, div.pull-right a').each(function(){
       var target = $(this).attr('href');
       if (target == '/login') {
         $(this).attr('href', 'https://app.contentblvd.com/#/login');
